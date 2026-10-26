@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a101b">
+  <meta name="description" content="TubeLite TV web edition — remote-friendly YouTube discovery and official embedded playback">
+  <title>TubeLite TV — Web Edition</title>
+  <link rel="icon" href="../assets/tubelite-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="web-config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="shell">
+    <aside id="sidebar" aria-label="TubeLite navigation">
+      <a class="identity" href="../" title="TubeLite TV product site"><img src="../assets/tubelite-logo.png" alt=""><span>TubeLite <b>TV</b></span></a>
+      <nav id="menu" aria-label="TV sections">
+        <button type="button" data-page="home" class="nav-item active"><span aria-hidden="true">⌂</span> Home</button>
+        <button type="button" data-page="search" class="nav-item"><span aria-hidden="true">⌕</span> Search</button>
+        <button type="button" data-page="channels" class="nav-item"><span aria-hidden="true">◉</span> Channels</button>
+        <button type="button" data-page="live" class="nav-item"><span aria-hidden="true">●</span> LIVE</button>
+        <button type="button" data-page="subscriptions" class="nav-item"><span aria-hidden="true">✦</span> Subscriptions</button>
+        <button type="button" data-page="history" class="nav-item"><span aria-hidden="true">↺</span> History</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-status" id="authStatus">Not signed in</div>
+        <button id="authButton" type="button" class="ghost">Sign in with Google</button>
+        <button id="refreshButton" type="button" class="ghost">Refresh section</button>
+        <a href="../privacy.html" class="legal">Privacy</a>
+        <a href="../terms.html" class="legal">Terms</a>
+      </div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <header class="topbar">
+        <div class="heading"><h1 id="pageTitle">Home</h1><div id="pageSubtitle" class="subtitle">Discover by category</div></div>
+        <div class="top-actions">
+          <button type="button" id="searchShortcut" class="ghost">⌕ Search</button>
+          <button type="button" id="backButton" class="ghost" hidden>← Back</button>
+        </div>
+      </header>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <section id="searchPanel" class="search-panel" hidden>
+        <label for="searchInput">Search videos and channels</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Enter a title, creator, or topic">
+          <button id="searchVideos" type="button">Videos</button>
+          <button id="searchChannels" type="button" class="ghost">Channels only</button>
+        </div>
+      </section>
+      <div id="content" aria-live="polite"></div>
+      <footer>TubeLite TV Web Edition · Developed by Mohsin IQBAL — CEO, Innovative Deciphering · Independent YouTube API client · <a href="../">Product information</a></footer>
+    </main>
+  </div>
+  <div id="playerModal" role="dialog" aria-label="YouTube player" aria-modal="true" hidden>
+    <div class="player-header"><span id="playerTitle">Player</span><button id="closePlayer" type="button">✕ Close</button></div>
+    <div class="player-frame"><iframe id="player" title="YouTube video player" src="about:blank" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <p class="player-note">Playback uses the official YouTube embedded player. Availability depends on your browser and the video owner's embed settings.</p>
+  </div>
+</body>
+</html>
